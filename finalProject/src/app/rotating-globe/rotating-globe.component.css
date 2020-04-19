@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+  }
+  .point-mouse {
+    fill: steelblue;
+  }
+  #rotation {
+    position: absolute;
+    font-family: monospace;
+    padding: 10px;
+    background: rgba(255, 255, 255, .5);
+  }
+  #rotation input {
+    width: 300px;
+  }
+  #globe{
+    height:75vh;
+  }

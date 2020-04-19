@@ -1,0 +1,31 @@
+<!-- Toolbar -->
+<div>
+  <div class="grid">
+    <div class="row">
+      <div class="column">
+        <app-rotating-globe></app-rotating-globe>
+      </div>
+    </div>
+    <div class="row">
+      <div class="grid">
+        <div class="row">
+          <div class="column">
+            <app-population-graph></app-population-graph>
+          </div>
+          <div class="column">
+            <app-infection-graph></app-infection-graph>
+          </div>
+          <div >
+            <ul *ngFor="pop in populationDensity">
+              <li>country: {{pop.country}} | density: {{pop.density}} </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<router-outlet></router-outlet>
