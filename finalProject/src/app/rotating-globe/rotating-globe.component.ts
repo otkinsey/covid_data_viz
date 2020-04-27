@@ -2,17 +2,37 @@ import { Component, OnInit } from '@angular/core';
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import * as versor from 'versor';
+import { HttpClient } from '@angular/common/http';
+import populationDensity from './../../../node_modules/country-json/src/country-by-population-density.json';
+import population from './../../../node_modules/country-json/src/country-by-population.json';
+// import { appendFile } from 'fs';
 
 @Component({
   selector: 'app-rotating-globe',
   templateUrl: './rotating-globe.component.html',
-  styleUrls: ['./rotating-globe.component.css']
+  styleUrls: ['./rotating-globe.component.css'],
 })
 export class RotatingGlobeComponent implements OnInit {
-
-  constructor() { }
+  public populationDensity:{country:string, density:string}[] = populationDensity;
+  public population:{county:string, population:string}[] = population;
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
+    // console.log("[rotating-globe.components] populationDensity: ",populationDensity);
+    // console.log("[rotating-globe.components] population: ",population);
+
+    var population;
+    var population_density;
+    
+    this.http
+        .get('assets/country-by-population.json', {responseType:'json'})
+        .subscribe((result: string) => { population = result; console.log("population: ", population) })
+
+    this.http
+        .get('assets/country-by-population-density.json', {responseType:'json'})
+        .subscribe((result: string) => { population_density = result; console.log("population_density: ", population_density) })
+
+    // loadData();
     var angles = ["λ", "φ", "γ"];
     angles.forEach(function(angle, index){
       d3.select("#rotation").append("div")
@@ -109,14 +129,56 @@ export class RotatingGlobeComponent implements OnInit {
       projection.rotate(eulerAngles);
     }
 
-    d3.json("/assets/countries.json").then((countries)=>{ 
+    // function loadData(){
+    //   console.log("loadData: ",population, populationDensity);
+    //   let pd = populationDensity;
+    //   let density_and_population = population.map((o,i) => {return { country : o.country, 
+    //                                                       population: o.population,
+    //                                                       population_density: o.country === pd[i].country ? pd[i].density : 
+    //                                                       `error: ${pd[i].country} not included in population array` };
+    //     })
+    //   }
+
+    function getCountryData(name){
+      /* todo: add population density and total population to countries properties */
+      let pop = population.find((i) => i.country === name);
+      let pd = population_density.find((i) => i.country === name);
+
+      return  { name: name,
+                total_population: pop.population,
+                population_density: pd.density
+      }
+    }
+
+    // d3.json("assets/world.geo.json/countries.geo.json").then((countries)=>{ 
+    d3.json("assets/countries.json").then((countries)=>{ 
       svg.selectAll(".subunit")
       .data(topojson.feature(countries, countries.objects.polygons).features)
-    .enter().append("path")
+      .enter().append("path")
       .attr("d", path)
+      .attr("name", function(d){ return d.properties.name; })
       .style("stroke", "#fff")
       .style("stroke-width", "1px")
+      .on('mouseover', (d) => { 
+            let data = getCountryData(d.properties.name);
+            var tooltip = document.createElement("div");
+            tooltip.id = "tooltip";
+            tooltip.setAttribute("style","position:absolute;top: 50px;right:100px")
+            tooltip.innerHTML = `<div> 
+                          country: ${data.name}<br>
+                          population: ${data.total_population}<br>
+                          density: ${data.population_density}
+                      </div>`
+                      document.body.append(tooltip);
+            return tooltip;
+      })// temporary implementation add stylized hover effect
+      .on("mouseout",() => { 
+        console.log("mouseout");
+        let tooltip = document.getElementById("tooltip"); 
+        document.body.removeChild(tooltip); 
+      })
     })
+      
 
     d3.selectAll("input").on("input", function(){
       // get all values

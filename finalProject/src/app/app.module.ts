@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { RotatingGlobeComponent } from './rotating-globe/rotating-globe.component';
 import { PopulationGraphComponent } from './population-graph/population-graph.component';
 import { InfectionGraphComponent } from './infection-graph/infection-graph.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { InfectionGraphComponent } from './infection-graph/infection-graph.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
