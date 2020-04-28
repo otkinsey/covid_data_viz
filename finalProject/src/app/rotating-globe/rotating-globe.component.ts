@@ -141,13 +141,16 @@ export class RotatingGlobeComponent implements OnInit {
 
     function getCountryData(name){
       /* todo: add population density and total population to countries properties */
-      let pop = population.find((i) => i.country === name);
-      let pd = population_density.find((i) => i.country === name);
-
-      return  { name: name,
-                total_population: pop.population,
-                population_density: pd.density
-      }
+      console.log("[getCountryData] country: ", name);
+      
+      var pop = population.find((i) => i.country === name );
+      
+      var pd = population_density.find((i) => i.country === name );
+      
+      return   {  name: name,
+                  total_population: pop.population,
+                  population_density: pd.density
+                }
     }
 
     // d3.json("assets/world.geo.json/countries.geo.json").then((countries)=>{ 
@@ -157,6 +160,10 @@ export class RotatingGlobeComponent implements OnInit {
       .enter().append("path")
       .attr("d", path)
       .attr("name", function(d){ return d.properties.name; })
+      .attr("fill", d => {
+        var country = getCountryData(d.properties.name);
+        return createGradient(country.population_density)
+      })
       .style("stroke", "#fff")
       .style("stroke-width", "1px")
       .on('mouseover', (d) => { 
@@ -178,6 +185,9 @@ export class RotatingGlobeComponent implements OnInit {
         document.body.removeChild(tooltip); 
       })
     })
+
+    var createGradient =  d3.scaleOrdinal(d3.schemeBlues[9]);
+
       
 
     d3.selectAll("input").on("input", function(){

@@ -104,7 +104,7 @@
         "population": "11051600"
     },
     {
-        "country": "Bosnia and Herzegovina",
+        "country": "Bosnia-Herzegovina",
         "population": "3507017"
     },
     {
@@ -192,7 +192,7 @@
         "population": "813912"
     },
     {
-        "country": "Congo",
+        "country": "Republic of the Congo",
         "population": "5260750"
     },
     {
@@ -272,7 +272,7 @@
         "population": "104957438"
     },
     {
-        "country": "Falkland Islands",
+        "country": "Falkland Islands (Malvinas)",
         "population": "2910"
     },
     {
@@ -280,7 +280,7 @@
         "population": "49290"
     },
     {
-        "country": "Fiji Islands",
+        "country": "Fiji",
         "population": "905502"
     },
     {
@@ -300,7 +300,7 @@
         "population": "283007"
     },
     {
-        "country": "French Southern territories",
+        "country": "French Southern and Antarctic Lands",
         "population": null
     },
     {
@@ -352,6 +352,10 @@
         "population": "16913503"
     },
     {
+        "country": "Guernsey",
+        "population": "173863"
+    },
+    {
         "country": "Guinea",
         "population": "12717176"
     },
@@ -372,7 +376,7 @@
         "population": null
     },
     {
-        "country": "Holy See (Vatican City State)",
+        "country": "Holy See (Vatican City)",
         "population": "1000"
     },
     {
@@ -412,6 +416,10 @@
         "population": "4761657"
     },
     {
+        "country": "Isle of Man",
+        "population": "85033"
+    },
+    {
         "country": "Israel",
         "population": "8321570"
     },
@@ -420,7 +428,7 @@
         "population": "59359900"
     },
     {
-        "country": "Ivory Coast",
+        "country": "Cote d'Ivoire",
         "population": "24294750"
     },
     {
@@ -456,7 +464,7 @@
         "population": "6045117"
     },
     {
-        "country": "Laos",
+        "country": "Lao People's Democratic Republic",
         "population": "6858160"
     },
     {
@@ -476,7 +484,7 @@
         "population": "4731906"
     },
     {
-        "country": "Libyan Arab Jamahiriya",
+        "country": "Libya",
         "population": "5605000"
     },
     {
@@ -492,11 +500,11 @@
         "population": "583455"
     },
     {
-        "country": "Macao",
+        "country": "Macau",
         "population": "473000"
     },
     {
-        "country": "North Macedonia",
+        "country": "Macedonia",
         "population": "2024000"
     },
     {
@@ -548,7 +556,7 @@
         "population": "129163276"
     },
     {
-        "country": "Micronesia, Federated States of",
+        "country": "Micronesia",
         "population": null
     },
     {
@@ -564,6 +572,10 @@
         "population": "3075647"
     },
     {
+        "country": "Montenegro",
+        "population": "631219"
+    },
+    {
         "country": "Montserrat",
         "population": "5177"
     },
@@ -576,7 +588,7 @@
         "population": "29668834"
     },
     {
-        "country": "Myanmar",
+        "country": "Burma",
         "population": "53370609"
     },
     {
@@ -680,7 +692,7 @@
         "population": "104918090"
     },
     {
-        "country": "Pitcairn",
+        "country": "Pitcairn Islands",
         "population": "50"
     },
     {
@@ -708,12 +720,16 @@
         "population": "19679306"
     },
     {
-        "country": "Russian Federation",
+        "country": "Russia",
         "population": "143989754"
     },
     {
         "country": "Rwanda",
         "population": "12208407"
+    },
+    {
+        "country": "Saint Barthelemy",
+        "population": "9872"
     },
     {
         "country": "Saint Helena",
@@ -726,6 +742,10 @@
     {
         "country": "Saint Lucia",
         "population": "178844"
+    },
+    {
+        "country": "Saint Martin",
+        "population": "38,545"
     },
     {
         "country": "Saint Pierre and Miquelon",
@@ -754,6 +774,9 @@
     {
         "country": "Scotland",
         "population": null
+    },
+    {   "country": "Serbia",
+        "population": "8737371"
     },
     {
         "country": "Senegal",
@@ -792,7 +815,7 @@
         "population": "56717156"
     },
     {
-        "country": "South Georgia and the South Sandwich Islands",
+        "country": "South Georgia South Sandwich Islands",
         "population": null
     },
     {
@@ -808,7 +831,7 @@
         "population": "46354321"
     },
     {
-        "country": "SriLanka",
+        "country": "Sri Lanka",
         "population": "20876917"
     },
     {
@@ -820,7 +843,7 @@
         "population": "563402"
     },
     {
-        "country": "Svalbard and Jan Mayen",
+        "country": "Svalbard",
         "population": "3200"
     },
     {
@@ -848,11 +871,15 @@
         "population": "57310019"
     },
     {
+        "country": "Taiwan",
+        "population": "23816775"
+    },
+    {
         "country": "Thailand",
         "population": "69037513"
     },
     {
-        "country": "The Democratic Republic of Congo",
+        "country": "Democratic Republic of Congo",
         "population": null
     },
     {
@@ -908,7 +935,7 @@
         "population": "66181585"
     },
     {
-        "country": "United States",
+        "country": "United States of America",
         "population": "324459463"
     },
     {
@@ -936,11 +963,11 @@
         "population": "95540800"
     },
     {
-        "country": "Virgin Islands, British",
+        "country": "British Virgin Islands",
         "population": null
     },
     {
-        "country": "Virgin Islands, U.S.",
+        "country": "United States Virgin Islands",
         "population": null
     },
     {
@@ -948,7 +975,7 @@
         "population": null
     },
     {
-        "country": "Wallis and Futuna",
+        "country": "Wallis and Futuna Islands",
         "population": "11773"
     },
     {

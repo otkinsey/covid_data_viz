@@ -25,11 +25,11 @@
     },
     {
         "country": "Anguilla",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Antarctica",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Antigua and Barbuda",
@@ -61,7 +61,7 @@
     },
     {
         "country": "Bahamas",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Bahrain",
@@ -104,7 +104,7 @@
         "density": "9.85"
     },
     {
-        "country": "Bosnia and Herzegovina",
+        "country": "Bosnia-Herzegovina",
         "density": "75.08"
     },
     {
@@ -113,7 +113,7 @@
     },
     {
         "country": "Bouvet Island",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Brazil",
@@ -121,11 +121,11 @@
     },
     {
         "country": "British Indian Ocean Territory",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Brunei",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Bulgaria",
@@ -153,7 +153,7 @@
     },
     {
         "country": "Cape Verde",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Cayman Islands",
@@ -177,11 +177,11 @@
     },
     {
         "country": "Christmas Island",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Cocos (Keeling) Islands",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Colombia",
@@ -192,12 +192,12 @@
         "density": "394.9"
     },
     {
-        "country": "Congo",
-        "density": null
+        "country": "Republic of the Congo",
+        "density": "unknown"
     },
     {
         "country": "Cook Islands",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Costa Rica",
@@ -237,7 +237,7 @@
     },
     {
         "country": "East Timor",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Ecuador",
@@ -245,7 +245,7 @@
     },
     {
         "country": "Egypt",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "El Salvador",
@@ -253,7 +253,7 @@
     },
     {
         "country": "England",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Equatorial Guinea",
@@ -272,16 +272,16 @@
         "density": "94.1"
     },
     {
-        "country": "Falkland Islands",
-        "density": null
+        "country": "Falkland Islands (Malvinas)",
+        "density": "unknown"
     },
     {
         "country": "Faroe Islands",
-        "density": null
+        "density": "unknown"
     },
     {
-        "country": "Fiji Islands",
-        "density": null
+        "country": "Fiji",
+        "density": "unknown"
     },
     {
         "country": "Finland",
@@ -293,15 +293,15 @@
     },
     {
         "country": "French Guiana",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "French Polynesia",
         "density": "75.64"
     },
     {
-        "country": "French Southern territories",
-        "density": null
+        "country": "French Southern and Antarctic Lands",
+        "density": "unknown"
     },
     {
         "country": "Gabon",
@@ -309,7 +309,7 @@
     },
     {
         "country": "Gambia",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Georgia",
@@ -325,7 +325,7 @@
     },
     {
         "country": "Gibraltar",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Greece",
@@ -341,7 +341,7 @@
     },
     {
         "country": "Guadeloupe",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Guam",
@@ -350,6 +350,10 @@
     {
         "country": "Guatemala",
         "density": "144.35"
+    },
+    {
+        "country": "Guernsey",
+        "density": "915"
     },
     {
         "country": "Guinea",
@@ -369,11 +373,11 @@
     },
     {
         "country": "Heard Island and McDonald Islands",
-        "density": null
+        "density": "unknown"
     },
     {
-        "country": "Holy See (Vatican City State)",
-        "density": null
+        "country": "Holy See (Vatican City)",
+        "density": "unknown"
     },
     {
         "country": "Honduras",
@@ -381,7 +385,7 @@
     },
     {
         "country": "Hong Kong",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Hungary",
@@ -401,7 +405,7 @@
     },
     {
         "country": "Iran",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Iraq",
@@ -412,6 +416,10 @@
         "density": "66.7"
     },
     {
+        "country": "Isle of Man",
+        "density": "149.18"
+    },
+    {
         "country": "Israel",
         "density": "372.43"
     },
@@ -420,7 +428,7 @@
         "density": "203.41"
     },
     {
-        "country": "Ivory Coast",
+        "country": "Cote d'Ivoire",
         "density": "63.89"
     },
     {
@@ -437,7 +445,7 @@
     },
     {
         "country": "Kazakhstan",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Kenya",
@@ -453,11 +461,11 @@
     },
     {
         "country": "Kyrgyzstan",
-        "density": null
+        "density": "unknown"
     },
     {
-        "country": "Laos",
-        "density": null
+        "country": "Lao People's Democratic Republic",
+        "density": "unknown"
     },
     {
         "country": "Latvia",
@@ -476,8 +484,8 @@
         "density": "44.58"
     },
     {
-        "country": "Libyan Arab Jamahiriya",
-        "density": null
+        "country": "Libya",
+        "density": "unknown"
     },
     {
         "country": "Liechtenstein",
@@ -492,12 +500,12 @@
         "density": "209.73"
     },
     {
-        "country": "Macao",
-        "density": null
+        "country": "Macau",
+        "density": "unknown"
     },
     {
-        "country": "North Macedonia",
-        "density": null
+        "country": "Macedonia",
+        "density": "unknown"
     },
     {
         "country": "Madagascar",
@@ -529,7 +537,7 @@
     },
     {
         "country": "Martinique",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Mauritania",
@@ -541,15 +549,15 @@
     },
     {
         "country": "Mayotte",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Mexico",
         "density": "62.93"
     },
     {
-        "country": "Micronesia, Federated States of",
-        "density": null
+        "country": "Micronesia",
+        "density": "unknown"
     },
     {
         "country": "Moldova",
@@ -564,8 +572,12 @@
         "density": "1.83"
     },
     {
+        "country": "Montenegro",
+        "density": "47"
+    },
+    {
         "country": "Montserrat",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Morocco",
@@ -576,7 +588,7 @@
         "density": "32.85"
     },
     {
-        "country": "Myanmar",
+        "country": "Burma",
         "density": "81.52"
     },
     {
@@ -585,7 +597,7 @@
     },
     {
         "country": "Nauru",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Nepal",
@@ -597,7 +609,7 @@
     },
     {
         "country": "Netherlands Antilles",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "New Caledonia",
@@ -621,19 +633,19 @@
     },
     {
         "country": "Niue",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Norfolk Island",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "North Korea",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Northern Ireland",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Northern Mariana Islands",
@@ -657,7 +669,7 @@
     },
     {
         "country": "Palestine",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Panama",
@@ -680,8 +692,8 @@
         "density": "329.99"
     },
     {
-        "country": "Pitcairn",
-        "density": null
+        "country": "Pitcairn Islands",
+        "density": "unknown"
     },
     {
         "country": "Poland",
@@ -701,14 +713,14 @@
     },
     {
         "country": "Reunion",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Romania",
         "density": "86.79"
     },
     {
-        "country": "Russian Federation",
+        "country": "Russia",
         "density": "8.76"
     },
     {
@@ -716,24 +728,32 @@
         "density": "477.36"
     },
     {
+        "country": "Saint Barthelemy",
+        "density": "470"
+    },
+    {
         "country": "Saint Helena",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Saint Kitts and Nevis",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Saint Lucia",
-        "density": null
+        "density": "unknown"
+    },
+    {
+        "country": "Saint Martin",
+        "density": "730"
     },
     {
         "country": "Saint Pierre and Miquelon",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Saint Vincent and the Grenadines",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Samoa",
@@ -753,11 +773,14 @@
     },
     {
         "country": "Scotland",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Senegal",
         "density": "73.41"
+    },
+    {   "country": "Serbia",
+        "population": "100"
     },
     {
         "country": "Seychelles",
@@ -773,7 +796,7 @@
     },
     {
         "country": "Slovakia",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Slovenia",
@@ -792,12 +815,12 @@
         "density": "43.68"
     },
     {
-        "country": "South Georgia and the South Sandwich Islands",
-        "density": null
+        "country": "South Georgia South Sandwich Islands",
+        "density": "unknown"
     },
     {
         "country": "South Korea",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "South Sudan",
@@ -808,8 +831,8 @@
         "density": "93.52"
     },
     {
-        "country": "SriLanka",
-        "density": null
+        "country": "Sri Lanka",
+        "density": "unknown"
     },
     {
         "country": "Sudan",
@@ -820,8 +843,8 @@
         "density": "3.46"
     },
     {
-        "country": "Svalbard and Jan Mayen",
-        "density": null
+        "country": "Svalbard",
+        "density": "unknown"
     },
     {
         "country": "Swaziland",
@@ -837,11 +860,15 @@
     },
     {
         "country": "Syria",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Tajikistan",
         "density": "58.64"
+    },
+    {
+        "country": "Taiwan",
+        "density": "673"
     },
     {
         "country": "Tanzania",
@@ -852,8 +879,8 @@
         "density": "131.16"
     },
     {
-        "country": "The Democratic Republic of Congo",
-        "density": null
+        "country": "Democratic Republic of Congo",
+        "density": "unknown"
     },
     {
         "country": "Togo",
@@ -861,7 +888,7 @@
     },
     {
         "country": "Tokelau",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Tonga",
@@ -908,12 +935,12 @@
         "density": "264.94"
     },
     {
-        "country": "United States",
+        "country": "United States of America",
         "density": "34.56"
     },
     {
         "country": "United States Minor Outlying Islands",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Uruguay",
@@ -929,39 +956,39 @@
     },
     {
         "country": "Venezuela",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Vietnam",
         "density": "289.32"
     },
     {
-        "country": "Virgin Islands, British",
-        "density": null
+        "country": "British Virgin Islands",
+        "density": "unknown"
     },
     {
-        "country": "Virgin Islands, U.S.",
-        "density": null
+        "country": "United States Virgin Islands",
+        "density": "unknown"
     },
     {
         "country": "Wales",
-        "density": null
+        "density": "unknown"
     },
     {
-        "country": "Wallis and Futuna",
-        "density": null
+        "country": "Wallis and Futuna Islands",
+        "density": "unknown"
     },
     {
         "country": "Western Sahara",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Yemen",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Yugoslavia",
-        "density": null
+        "density": "unknown"
     },
     {
         "country": "Zambia",
