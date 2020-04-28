@@ -204,6 +204,10 @@
         "density": "95.42"
     },
     {
+        "country": "Cote d'Ivoire",
+        "density": "63.89"
+    },
+    {
         "country": "Croatia",
         "density": "76"
     },
@@ -428,16 +432,16 @@
         "density": "203.41"
     },
     {
-        "country": "Cote d'Ivoire",
-        "density": "63.89"
-    },
-    {
         "country": "Jamaica",
         "density": "250.69"
     },
     {
         "country": "Japan",
         "density": "349.29"
+    },
+    {
+        "country": "Jersey",
+        "density": "unknown"
     },
     {
         "country": "Jordan",
@@ -464,8 +468,12 @@
         "density": "unknown"
     },
     {
-        "country": "Lao People's Democratic Republic",
+        "country": "Land Islands",
         "density": "unknown"
+    },
+    {
+        "country": "Lao People's Democratic Republic",
+        "density": "82"
     },
     {
         "country": "Latvia",

@@ -204,6 +204,10 @@
         "population": "4905769"
     },
     {
+        "country": "Cote d'Ivoire",
+        "population": "24294750"
+    },
+    {
         "country": "Croatia",
         "population": "4189353"
     },
@@ -428,16 +432,16 @@
         "population": "59359900"
     },
     {
-        "country": "Cote d'Ivoire",
-        "population": "24294750"
-    },
-    {
         "country": "Jamaica",
         "population": "2890299"
     },
     {
         "country": "Japan",
         "population": "127484450"
+    },
+    {
+        "country": "Jersey",
+        "population": "unknown"
     },
     {
         "country": "Jordan",
@@ -462,6 +466,10 @@
     {
         "country": "Kyrgyzstan",
         "population": "6045117"
+    },
+    {
+        "country": "Land Islands",
+        "population": "unknown"
     },
     {
         "country": "Lao People's Democratic Republic",
