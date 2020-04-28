@@ -1,33 +1,23 @@
 <!-- Toolbar -->
 <div>
-  <div class="grid">
-    <div class="row">
-      <div class="column">
-        <app-rotating-globe></app-rotating-globe>
-      </div>
+  <div class="main">
+    <div id="country_list">
+      <ul>
+        <li *ngFor="let pop of populationDensity" class="country">{{pop.country}}</li>
+      </ul>
     </div>
-    <div class="row">
-      <div class="grid">
-        <div class="row">
-          <div class="column">
-            <app-population-graph></app-population-graph>
-          </div>
-          <div class="column">
-            <app-infection-graph></app-infection-graph>
-          </div>
-          <!-- <div>
-            <ul>
-              <li *ngFor="let pop of populationDensity">country: {{pop.country}}  |  density: {{pop.density}} </li>
-            </ul>
-          </div>
-          <div>
-            <ul >
+    <div class="column">
+      <app-rotating-globe></app-rotating-globe>
+    </div>
+    <div class="column">
+      <app-population-graph></app-population-graph>
+    </div>
+    <div class="column">
+      <app-infection-graph></app-infection-graph>
+    </div>
+            <!-- <ul >
               <li *ngFor="let country of population">country: {{country.country}}  | population: {{country.population}} </li>
-            </ul>
-          </div> -->
-        </div>
-      </div>
-    </div>
+            </ul> -->
   </div>
 </div>
 <router-outlet></router-outlet>

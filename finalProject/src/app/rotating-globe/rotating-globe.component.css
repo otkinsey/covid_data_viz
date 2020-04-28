@@ -15,4 +15,18 @@ body {
   }
   #globe{
     height:75vh;
+
+  }
+  #tooltip {
+    position: absolute;
+    top: 202px;
+    left: 952px;
+    background: white;
+    padding: 17px;
+    border-radius: 3px;
+    opacity:0;
+    transform:opacity .3s 
+  }
+  #tooltip.active{
+    opacity:1;
   }

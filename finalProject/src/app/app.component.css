@@ -1,15 +1,13 @@
-.grid{
-	display: flex;
-	flex-direction: column;
+ul{
+	list-style:none;
 }
 
-.grid .row{
-    display:flex;
-    flex-direction:row;
+.main{
+	display:grid;
+	grid: 1fr / auto-flow;
 }
 
-.grid .row{
-	display: flex;
-	flex-direction: row;
-	min-height: 25vh;
+#country_list{
+	height: 85vh;
+	overflow:scroll;
 }

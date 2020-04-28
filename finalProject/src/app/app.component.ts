@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import populationDensity from './../../node_modules/country-json/src/country-by-population-density.json';
-import population from './../../node_modules/country-json/src/country-by-population.json';
+import populationDensity from './../assets/country-by-population-density.json';
+import population from './../assets/country-by-population.json';
 
 @Component({
   selector: 'app-root',

@@ -5,6 +5,7 @@ import * as versor from 'versor';
 import { HttpClient } from '@angular/common/http';
 import populationDensity from './../../../node_modules/country-json/src/country-by-population-density.json';
 import population from './../../../node_modules/country-json/src/country-by-population.json';
+import { ActivationEnd } from '@angular/router';
 // import { appendFile } from 'fs';
 
 @Component({
@@ -23,6 +24,8 @@ export class RotatingGlobeComponent implements OnInit {
 
     var population;
     var population_density;
+    var countries;
+    var country_names;
     
     this.http
         .get('assets/country-by-population.json', {responseType:'json'})
@@ -48,7 +51,7 @@ export class RotatingGlobeComponent implements OnInit {
         .attr("value", "0");
     });
     var globe_container = document.getElementById("globe");
-    var width = window.innerWidth, height = globe_container.clientHeight;
+    var width = .5*window.innerWidth, height = globe_container.clientHeight;
 
     var svg = d3.select("#globe").append("svg")
         .attr("width", width)
@@ -84,36 +87,62 @@ export class RotatingGlobeComponent implements OnInit {
     svg.call(drag);
 
     function dragstarted(){
-
       var mouse_pos = d3.mouse(this);
-
       v0 = versor.cartesian(projection.invert(mouse_pos));
       r0 = projection.rotate();
       q0 = versor(r0);
-
       svg.insert("path")
         .datum({type: "Point", coordinates: projection.invert(mouse_pos)})
         .attr("class", "point point-mouse")
         .attr("d", path); 
     }
 
+    var focused;
+    d3.selectAll(".country")
+    .on("click", () => rotateMe(event))
+
+    var rotateMe =  function(event) {
+      let name = event.target.innerHTML;
+      d3.selectAll(`.country_path`).attr("fill", (d) => {
+        // var country = getCountryData(d.name);
+        var country = getCountryData(d.properties.name);
+        var gradient_val = createGradient(country.population_density)
+        return gradient_val;
+      })
+      // let id = country_names.find((c) => c.name = name).id;
+      var rotate = projection.rotate();
+      var focusedCountry = getCountryGeoJSON(countries, name),//get the clicked country's details
+      p = d3.geoCentroid(focusedCountry);
+      d3.select(`[name = "${name}"]`).attr("fill", "orange")
+      console.log("focused country: ", focusedCountry);
+      svg.selectAll(".focused").classed("focused", focused = false);
+    
+    //Globe rotating
+    (function transition() {
+      d3.transition()
+      .duration(2500)
+      .tween("rotate", function() {
+        var r = d3.interpolate(projection.rotate(), [-p[0], -p[1]]);
+        return function(t) {
+          projection.rotate(r(t));
+          svg.selectAll("path").attr("d", path)
+          .classed("focused", function(d, i) { return name == focusedCountry.name  ? focused = d : false; });
+        };
+      })
+      })();
+    };
+
     function dragged(){
-
       var mouse_pos = d3.mouse(this);
-
       var v1 = versor.cartesian(projection.rotate(r0).invert(mouse_pos)),
       q1 = versor.multiply(q0, versor.delta(v0, v1)),
       r1 = versor.rotation(q1);
-
       if (r1){
         update(r1);
-
         svg.selectAll("path").attr("d", path);
-
         svg.selectAll(".point-mouse")
             .datum({type: "Point", coordinates: projection.invert(mouse_pos)});
       }
-
     }
 
     function dragended(){
@@ -141,8 +170,8 @@ export class RotatingGlobeComponent implements OnInit {
 
     function getCountryData(name){
       /* todo: add population density and total population to countries properties */
-      console.log("[getCountryData] country: ", name);
       
+      console.log("[getCountryData] name: ", name);
       var pop = population.find((i) => i.country === name );
       
       var pd = population_density.find((i) => i.country === name );
@@ -153,38 +182,103 @@ export class RotatingGlobeComponent implements OnInit {
                 }
     }
 
-    // d3.json("assets/world.geo.json/countries.geo.json").then((countries)=>{ 
-    d3.json("assets/countries.json").then((countries)=>{ 
+    function getCountryGeoJSON(cnt, sel) { 
+      for(var i = 0, l = cnt.length; i < l; i++) {
+        if(cnt[i].properties.name == sel) {return cnt[i];}
+      }
+    };
+    
+    // d3.json("assets/world.json").then((data)=>{ 
+    d3.json("assets/countries.json").then((data)=>{ 
+      console.log("countries: ",data);
+      // countries = topojson.feature(data, data.objects.countries).features;
+      countries = topojson.feature(data, data.objects.polygons).features;
       svg.selectAll(".subunit")
-      .data(topojson.feature(countries, countries.objects.polygons).features)
+      .data(countries)
       .enter().append("path")
+      .attr("class", "country_path")
       .attr("d", path)
-      .attr("name", function(d){ return d.properties.name; })
-      .attr("fill", d => {
+      .attr("fill", (d) => {
+        // var country = getCountryData(d.name);
         var country = getCountryData(d.properties.name);
-        return createGradient(country.population_density)
+        var gradient_val = createGradient(country.population_density)
+        return gradient_val;
       })
-      .style("stroke", "#fff")
-      .style("stroke-width", "1px")
+      .attr("name", function(d){ return d.properties.name; })
       .on('mouseover', (d) => { 
-            let data = getCountryData(d.properties.name);
-            var tooltip = document.createElement("div");
-            tooltip.id = "tooltip";
-            tooltip.setAttribute("style","position:absolute;top: 50px;right:100px")
-            tooltip.innerHTML = `<div> 
-                          country: ${data.name}<br>
-                          population: ${data.total_population}<br>
-                          density: ${data.population_density}
-                      </div>`
-                      document.body.append(tooltip);
-            return tooltip;
+        let current_country = document.querySelector(`[name = "${d.properties.name}"]`)
+        let data = getCountryData(d.properties.name);
+        // let mouse_x = d3.event.pageX - current_country.getBoundingClientRect().x;
+        // let mouse_y = d3.event.pageY - current_country.getBoundingClientRect().y;
+        let mouse_x = d3.event.pageX+10;
+        let mouse_y = d3.event.pageY-20;
+
+        console.log("x: ",mouse_x," y: ", mouse_y);
+        var tooltip = document.getElementById("tooltip");
+        tooltip.className = "active";
+        tooltip.setAttribute("style",`position:absolute;top: ${mouse_y}px;left: ${mouse_x}px`)
+        tooltip.innerHTML = `<div> 
+                      country: ${data.name}<br>
+                      population: ${data.total_population}<br>
+                      density: ${data.population_density}
+                  </div>`
+                  // document.body.append(tooltip);
+        return tooltip;
       })// temporary implementation add stylized hover effect
       .on("mouseout",() => { 
         console.log("mouseout");
         let tooltip = document.getElementById("tooltip"); 
-        document.body.removeChild(tooltip); 
+        tooltip.className = "";
+        // document.body.removeChild(tooltip); 
       })
+      .style("stroke", "#fff")
+      .style("stroke-width", "1px")
     })
+    // .then(()=>{
+    //   d3.tsv('assets/country_names.tsv').then((data) =>{
+    //     country_names = data;
+    //     svg.selectAll(".country_path")
+    //     .data(data)
+    //     .attr("id", (d)=> d.id)
+    //     // .attr("name", (d)=> d.name)
+    //     .attr("name", (d)=> d.properties.name)
+        // .attr("fill", (d) => {
+        //   // var country = getCountryData(d.name);
+        //   var country = getCountryData(d.properties.name);
+        //   var gradient_val = createGradient(country.population_density)
+        //   return gradient_val;
+        // })
+        // .on('mouseover', (d) => { 
+        //   let current_country = document.querySelector(`[name = "${d.name}"]`)
+        //   let data = getCountryData(d.name);
+        //   // let mouse_x = d3.event.pageX - current_country.getBoundingClientRect().x;
+        //   // let mouse_y = d3.event.pageY - current_country.getBoundingClientRect().y;
+        //   let mouse_x = d3.event.pageX+10;
+        //   let mouse_y = d3.event.pageY-20;
+  
+        //   console.log("x: ",mouse_x," y: ", mouse_y);
+        //   var tooltip = document.getElementById("tooltip");
+        //   tooltip.className = "active";
+        //   tooltip.setAttribute("style",`position:absolute;top: ${mouse_y}px;left: ${mouse_x}px`)
+        //   tooltip.innerHTML = `<div> 
+        //                 country: ${data.name}<br>
+        //                 population: ${data.total_population}<br>
+        //                 density: ${data.population_density}
+        //             </div>`
+        //             // document.body.append(tooltip);
+        //   return tooltip;
+        // })// temporary implementation add stylized hover effect
+        // .on("mouseout",() => { 
+        //   console.log("mouseout");
+        //   let tooltip = document.getElementById("tooltip"); 
+        //   tooltip.className = "";
+        //   // document.body.removeChild(tooltip); 
+        // })
+      // })
+    // })
+
+  
+    
 
     var createGradient =  d3.scaleOrdinal(d3.schemeBlues[9]);
 
