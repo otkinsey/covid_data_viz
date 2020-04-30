@@ -158,20 +158,10 @@ export class RotatingGlobeComponent implements OnInit {
       projection.rotate(eulerAngles);
     }
 
-    // function loadData(){
-    //   console.log("loadData: ",population, populationDensity);
-    //   let pd = populationDensity;
-    //   let density_and_population = population.map((o,i) => {return { country : o.country, 
-    //                                                       population: o.population,
-    //                                                       population_density: o.country === pd[i].country ? pd[i].density : 
-    //                                                       `error: ${pd[i].country} not included in population array` };
-    //     })
-    //   }
-
     function getCountryData(name){
       /* todo: add population density and total population to countries properties */
       
-      console.log("[getCountryData] name: ", name);
+      // console.log("[getCountryData] name: ", name);
       var pop = population.find((i) => i.country === name );
       
       var pd = population_density.find((i) => i.country === name );
@@ -190,7 +180,7 @@ export class RotatingGlobeComponent implements OnInit {
     
     // d3.json("assets/world.json").then((data)=>{ 
     d3.json("assets/countries.json").then((data)=>{ 
-      console.log("countries: ",data);
+      // console.log("countries: ",data);
       // countries = topojson.feature(data, data.objects.countries).features;
       countries = topojson.feature(data, data.objects.polygons).features;
       svg.selectAll(".subunit")

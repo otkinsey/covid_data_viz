@@ -1,13 +1,37 @@
 ul{
 	list-style:none;
+	cursor:pointer;
+	border-right: 1px solid #eae6e6;
 }
-
-.main{
-	display:grid;
-	grid: 1fr / auto-flow;
+.main {
+	display: grid;
+	grid: 1fr /2fr 8fr;
+	height: 82vh;
+	padding-top: 42px;
 }
 
 #country_list{
-	height: 85vh;
-	overflow:scroll;
+	overflow: scroll;
+	margin-bottom: 36px;
+}
+header {
+	background: #4eb095;
+	padding: 9px;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+header svg{
+	fill:white;
+	height:45px;
+}
+header > div{
+	text-align:center;
+	width:100%;
+	font-size:1.8rem;
+	color:white;
+	font-family:Helvetica, arial;
+}
+body {
+	margin: 0;
 }
