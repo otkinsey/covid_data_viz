@@ -3,23 +3,71 @@ ul{
 	cursor:pointer;
 	border-right: 1px solid #eae6e6;
 }
+button {
+	background: #4eb095;
+	color: white;
+	border: 0;
+	padding: 1rem;
+	font-size: .9rem;
+	margin: 2rem;
+	position: absolute;
+}
 .main {
-	display: grid;
-	grid: 1fr /2fr 8fr;
-	height: 82vh;
-	padding-top: 42px;
+	display: flex;
+	height: 90vh;
+	width: auto;
+}
+.main > div {
+	display:flex;
+	/* flex-direction:column; */
+	justify-content:center;
+	align-self: center;
+	transition: left .5s, width .5s;
+}
+.main > div#country_list {
+	left: 0;
+	position: relative;
+	transition: left .5s;
+	overflow: scroll;
+    margin-bottom: 36px;
+    height: 75%;
 }
 
+.main > div#country_list.toggled {
+	left: -100vw;
+}
+
+.main > div#globe {
+	left: 40vw;
+	position: relative;
+	transition: left .5s;
+}
+.main > div#globe.toggled {
+	left: -14vw;
+}
+.main > div#graph {
+	left: 100vw;
+	position: relative;
+	transition: left .5s;
+}
+.main > div#graph.toggled {
+	left: -2vw;
+}
 #country_list{
 	overflow: scroll;
 	margin-bottom: 36px;
+	height: 75%;
 }
-header {
+footer{
+	height:5vh;
+}
+header{
 	background: #4eb095;
-	padding: 9px;
+	/* padding: 9px; */
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
+	height: 5vh;
 }
 header svg{
 	fill:white;

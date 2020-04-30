@@ -6,16 +6,17 @@
   <div>COVID-19 and Population Density</div>
 </header>
 <div>
+  <button (click)="toggleView(['globe','country_list', 'graph'])">Toggle View</button>
   <div class="main">
-    <!-- <div id="country_list">
+    <div id="country_list">
       <ul>
         <li *ngFor="let pop of populationDensity" class="country">{{pop.country}}</li>
       </ul>
-    </div> -->
-    <div class="column">
+    </div>
+    <div id="globe" class="column">
       <app-rotating-globe></app-rotating-globe>
     </div>
-    <div class="column">
+    <div id="graph" class="column">
       <app-infection-graph></app-infection-graph>
     </div>
   </div>
