@@ -19,6 +19,7 @@ body {
     align-items: center;
     justify-content: center;
   }
+
   #tooltip {
     position: absolute;
     top: 202px;
@@ -27,7 +28,7 @@ body {
     padding: 17px;
     border-radius: 3px;
     opacity:0;
-    transform:opacity .3s 
+    transform:opacity .3s;
   }
   #tooltip.active{
     opacity:1;

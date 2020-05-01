@@ -19,41 +19,27 @@ export class RotatingGlobeComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    // console.log("[rotating-globe.components] populationDensity: ",populationDensity);
-    // console.log("[rotating-globe.components] population: ",population);
 
     var population;
     var population_density;
     var countries;
-    var country_names;
-    
+
+    /* set the value of population variable */
     this.http
         .get('assets/country-by-population.json', {responseType:'json'})
         .subscribe((result: string) => { population = result; console.log("population: ", population) })
 
+    /* set the value of population+_density variable */
     this.http
         .get('assets/country-by-population-density.json', {responseType:'json'})
         .subscribe((result: string) => { population_density = result; console.log("population_density: ", population_density) })
 
-    // loadData();
     var angles = ["λ", "φ", "γ"];
-    angles.forEach(function(angle, index){
-      d3.select("#rotation").append("div")
-        .attr("class", "angle-label angle-label-" + index)
-        .html(angle + ": <span>0</span>")
 
-      d3.select("#rotation").append("input")
-        .attr("type", "range")
-        .attr("class", "angle angle-" + index)
-        .attr("min", "-180")
-        .attr("max", "180")
-        .attr("step", "1")
-        .attr("value", "0");
-    });
     var globe_container = document.getElementById("globe");
     var width = .5*window.innerWidth, height = globe_container.clientHeight;
 
-    var svg = d3.select("#globe").append("svg")
+    var svg = d3.select("#globe #globe").append("svg")
         .attr("width", width)
         .attr("height", height);
 
@@ -187,6 +173,7 @@ export class RotatingGlobeComponent implements OnInit {
       .data(countries)
       .enter().append("path")
       .attr("class", "country_path")
+      .attr("style", "cursor:pointer;")
       .attr("d", path)
       .attr("fill", (d) => {
         // var country = getCountryData(d.name);
@@ -198,10 +185,11 @@ export class RotatingGlobeComponent implements OnInit {
       .on('mouseover', (d) => { 
         let current_country = document.querySelector(`[name = "${d.properties.name}"]`)
         let data = getCountryData(d.properties.name);
-        // let mouse_x = d3.event.pageX - current_country.getBoundingClientRect().x;
-        // let mouse_y = d3.event.pageY - current_country.getBoundingClientRect().y;
-        let mouse_x = d3.event.pageX+10;
-        let mouse_y = d3.event.pageY-20;
+        let globe_container = document.querySelector("#globe");
+        let mouse_x = d3.event.pageX - (.95*globe_container.getBoundingClientRect().x);
+        let mouse_y = d3.event.pageY - (1.15*globe_container.getBoundingClientRect().y);
+        // let mouse_x = d3.event.pageX+10;
+        // let mouse_y = d3.event.pageY-20;
 
         console.log("x: ",mouse_x," y: ", mouse_y);
         var tooltip = document.getElementById("tooltip");
@@ -218,61 +206,14 @@ export class RotatingGlobeComponent implements OnInit {
       .on("mouseout",() => { 
         console.log("mouseout");
         let tooltip = document.getElementById("tooltip"); 
-        tooltip.className = "";
+        // tooltip.className = "";
         // document.body.removeChild(tooltip); 
       })
       .style("stroke", "#fff")
       .style("stroke-width", "1px")
-    })
-    // .then(()=>{
-    //   d3.tsv('assets/country_names.tsv').then((data) =>{
-    //     country_names = data;
-    //     svg.selectAll(".country_path")
-    //     .data(data)
-    //     .attr("id", (d)=> d.id)
-    //     // .attr("name", (d)=> d.name)
-    //     .attr("name", (d)=> d.properties.name)
-        // .attr("fill", (d) => {
-        //   // var country = getCountryData(d.name);
-        //   var country = getCountryData(d.properties.name);
-        //   var gradient_val = createGradient(country.population_density)
-        //   return gradient_val;
-        // })
-        // .on('mouseover', (d) => { 
-        //   let current_country = document.querySelector(`[name = "${d.name}"]`)
-        //   let data = getCountryData(d.name);
-        //   // let mouse_x = d3.event.pageX - current_country.getBoundingClientRect().x;
-        //   // let mouse_y = d3.event.pageY - current_country.getBoundingClientRect().y;
-        //   let mouse_x = d3.event.pageX+10;
-        //   let mouse_y = d3.event.pageY-20;
-  
-        //   console.log("x: ",mouse_x," y: ", mouse_y);
-        //   var tooltip = document.getElementById("tooltip");
-        //   tooltip.className = "active";
-        //   tooltip.setAttribute("style",`position:absolute;top: ${mouse_y}px;left: ${mouse_x}px`)
-        //   tooltip.innerHTML = `<div> 
-        //                 country: ${data.name}<br>
-        //                 population: ${data.total_population}<br>
-        //                 density: ${data.population_density}
-        //             </div>`
-        //             // document.body.append(tooltip);
-        //   return tooltip;
-        // })// temporary implementation add stylized hover effect
-        // .on("mouseout",() => { 
-        //   console.log("mouseout");
-        //   let tooltip = document.getElementById("tooltip"); 
-        //   tooltip.className = "";
-        //   // document.body.removeChild(tooltip); 
-        // })
-      // })
-    // })
-
-  
-    
+    })    
 
     var createGradient =  d3.scaleOrdinal(d3.schemeBlues[9]);
-
-      
 
     d3.selectAll("input").on("input", function(){
       // get all values

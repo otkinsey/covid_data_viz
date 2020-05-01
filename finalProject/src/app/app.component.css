@@ -1,8 +1,4 @@
-ul{
-	list-style:none;
-	cursor:pointer;
-	border-right: 1px solid #eae6e6;
-}
+
 button {
 	background: #4eb095;
 	color: white;
@@ -19,7 +15,6 @@ button {
 }
 .main > div {
 	display:flex;
-	/* flex-direction:column; */
 	justify-content:center;
 	align-self: center;
 	transition: left .5s, width .5s;
@@ -27,24 +22,24 @@ button {
 .main > div#country_list {
 	left: 0;
 	position: relative;
+	margin-bottom: 36px;
+	height: 75%;
 	transition: left .5s;
-	overflow: scroll;
-    margin-bottom: 36px;
-    height: 75%;
+	margin-left: 2rem;
 }
 
 .main > div#country_list.toggled {
 	left: -100vw;
 }
-
 .main > div#globe {
-	left: 40vw;
+	left: 33vw;
 	position: relative;
 	transition: left .5s;
 }
 .main > div#globe.toggled {
 	left: -14vw;
 }
+
 .main > div#graph {
 	left: 100vw;
 	position: relative;
@@ -53,17 +48,22 @@ button {
 .main > div#graph.toggled {
 	left: -2vw;
 }
-#country_list{
-	overflow: scroll;
-	margin-bottom: 36px;
+
+.main > div ul{
+	width: 300px;
+	list-style: none;
+	display: block;
 	height: 75%;
+	overflow: scroll;
+	border:1px solid #ccc;
 }
+.main > div ul > li{ cursor:pointer; }
 footer{
 	height:5vh;
 }
 header{
 	background: #4eb095;
-	/* padding: 9px; */
+	padding: 9px;
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
